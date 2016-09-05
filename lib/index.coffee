@@ -55,6 +55,8 @@ module.exports = (opts) ->
       @b.transform(t) for t in opts.transforms
       if opts.minify then @b.transform(uglifyify, { global: true })
 
+      @b.plugin(p) for p in opts.plugins
+
     ###*
      * Gets the dependency graph of required files so we can ignore them
      * from the compile process.
